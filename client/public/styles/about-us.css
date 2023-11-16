@@ -1,0 +1,16 @@
+.about-us-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.about-us-h2 {
+    font-size: 40px;
+    padding-bottom: 1em;
+}
+.about-us-content button {
+    position: absolute;
+    background-color: rgb(83, 118, 245);
+    border: 2px solid rgb(193, 135, 65);
+    padding: 0.5em;
+    top: 25em;
+    right: 5em;
+}
