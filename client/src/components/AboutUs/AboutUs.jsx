@@ -7,7 +7,7 @@ export default function AboutUs(){
     <div className="about-us-wrap">
 
       <div className="about-us-image">
-        <img src="../../public/images/aboutUsTransparent.webp" alt="" />
+        <img src="../../images/aboutUsImage.png" alt="" />
       </div>
 
       <div className="about-us-content">
