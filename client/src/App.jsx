@@ -10,6 +10,7 @@ import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCreate from './components/CourseCreate/CourseCreate';
 import AboutUs from './components/AboutUs/AboutUs';
 import {AuthenticationProvider} from './components/contexts/authContext';
+import CourseEdit from './components/CourseEdit/CourseEdit';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/courses/:courseId" element={<CourseDetails /> } />
+                <Route path="/courses/:courseId/edit" element={<CourseEdit /> } />
                 <Route path="/logout" element={<Logout /> } />
             </Routes>
         </div>

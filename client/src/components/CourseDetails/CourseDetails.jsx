@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import * as courseService from '../../services/courseService';
 import * as commentService from '../../services/commentService';
@@ -33,10 +33,15 @@ export default function CourseDetails() {
 
         setComments(state => [...state, {...newComment, owner: {email}}]);
     }
-    const {values, onChange, onSubmit} = useForm(addCommentHandler, {
-        comment: '',
+        //TODO: temp solution
+    // const initialValues = useMemo(() => ({ 
 
-    });
+    //    comment: '',
+    // }), [])
+    const {values, onChange, onSubmit} = useForm(addCommentHandler, { 
+
+        comment: '',
+     });
 
     return (
         <section id="game-details">
@@ -69,8 +74,8 @@ export default function CourseDetails() {
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 {userId === course._ownerId && (
                         <div className="buttons">
-                            <a href="#" className="button">Edit</a>
-                            <a href="#" className="button">Delete</a>
+                            <Link to={`/courses/${course._id}/edit`} className="button">Edit</Link>
+                            <Link to={`/courses/${course._id}/delete`} className="button">Delete</Link>
                         </div>
                 )}
 
