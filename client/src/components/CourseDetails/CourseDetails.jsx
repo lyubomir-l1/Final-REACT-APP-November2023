@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import * as courseService from '../../services/courseService';
 import * as commentService from '../../services/commentService';
 import AuthContext from "../contexts/authContext";
+import useForm from "../../hooks/useForm";
 
 export default function CourseDetails() {
-    const {email} = useContext(AuthContext)
+    const {email, userId} = useContext(AuthContext)
     const [course, setCourse] = useState({});
     const [comments, setComments] = useState([]);
     const { courseId } = useParams();
@@ -19,19 +20,23 @@ export default function CourseDetails() {
             .then(setComments);
     }, [courseId]);
 
-    const addCommentHandler = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.currentTarget);
+    const addCommentHandler = async (values) => {
 
         const newComment = await commentService.create(
             courseId,
+            values.comment
             // formData.get('username'),
-            formData.get('comment')
+            // formData.get('comment')
         );
 
-        setComments(state => [...state, {...newComment, author: {email}}]);
+
+
+        setComments(state => [...state, {...newComment, owner: {email}}]);
     }
+    const {values, onChange, onSubmit} = useForm(addCommentHandler, {
+        comment: '',
+
+    });
 
     return (
         <section id="game-details">
@@ -62,17 +67,20 @@ export default function CourseDetails() {
                 </div>
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
-                </div>
+                {userId === course._ownerId && (
+                        <div className="buttons">
+                            <a href="#" className="button">Edit</a>
+                            <a href="#" className="button">Delete</a>
+                        </div>
+                )}
+
             </div>
 
             <article className="create-comment">
                 <label>Add new comment:</label>
-                <form className="form" onSubmit={addCommentHandler}>
+                <form className="form" onSubmit={onSubmit}>
                     {/* <input type="text" name="username" placeholder="username" /> */}
-                    <textarea name="comment" placeholder="Comment......"></textarea>
+                    <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>
