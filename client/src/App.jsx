@@ -12,7 +12,7 @@ import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCreate from './components/CourseCreate/CourseCreate';
 import AboutUs from './components/AboutUs/AboutUs';
 import { useState } from 'react';
-import AuthContext from './components/contexts/authContext';
+import {AuthenticationProvider} from './components/contexts/authContext';
 
 function App() {
     const navigate = useNavigate()
@@ -56,7 +56,7 @@ function App() {
     }
 
     return (
-        <AuthContext.Provider value={values}>
+        <AuthenticationProvider value={values}>
         <div id="box">
             <Header />
 
@@ -71,7 +71,7 @@ function App() {
                 <Route path="/logout" element={<Logout /> } />
             </Routes>
         </div>
-        </AuthContext.Provider>
+        </AuthenticationProvider>
     )
 }
 
