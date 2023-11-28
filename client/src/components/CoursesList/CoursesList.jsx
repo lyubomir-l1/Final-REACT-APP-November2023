@@ -8,7 +8,10 @@ export default function CoursesList() {
 
     useEffect(() => {
         courseServise.getAll()
-            .then(result => setCourses(result));
+            .then(result => setCourses(result))
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
     return (
