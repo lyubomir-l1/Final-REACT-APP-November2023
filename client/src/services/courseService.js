@@ -20,5 +20,11 @@ export const create = async (courseData) => {
     return result;
 };
 
+export const edit = async (courseId, courseData) => {
+    const result = await request.put(`${baseUrl}/${courseId}`, courseData);
+
+    return result;
+};
+
 export const remove = async (courseId) => request.remove(`${baseUrl}/${courseId}`)
 
