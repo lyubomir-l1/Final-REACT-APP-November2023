@@ -4,8 +4,8 @@ const baseUrl = 'http://localhost:3030/data/courses'
 
 export const getAll = async () => {
     const result = await request.get(baseUrl);
-
     return result;
+
 };
 
 export const getOne = async (courseId) => {
@@ -19,4 +19,6 @@ export const create = async (courseData) => {
 
     return result;
 };
+
+export const remove = async (courseId) => request.remove(`${baseUrl}/${courseId}`)
 

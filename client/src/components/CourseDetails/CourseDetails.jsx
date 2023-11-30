@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import * as courseService from '../../services/courseService';
 import * as commentService from '../../services/commentService';
@@ -7,6 +7,7 @@ import AuthContext from "../contexts/authContext";
 import useForm from "../../hooks/useForm";
 
 export default function CourseDetails() {
+    const navigate = useNavigate();
     const {email, userId} = useContext(AuthContext)
     const [course, setCourse] = useState({});
     const [comments, setComments] = useState([]);
@@ -33,11 +34,15 @@ export default function CourseDetails() {
 
         setComments(state => [...state, {...newComment, owner: {email}}]);
     }
-        //TODO: temp solution
-    // const initialValues = useMemo(() => ({ 
 
-    //    comment: '',
-    // }), [])
+    const deleteCourseHandler = async () => {
+        const isConfirmed = confirm(`Are you sure you want to delete ${course.title}`);
+        if(isConfirmed){
+            await courseService.remove(courseId);
+            navigate('/courses');
+        }
+        }
+        
     const {values, onChange, onSubmit} = useForm(addCommentHandler, { 
 
         comment: '',
@@ -75,7 +80,7 @@ export default function CourseDetails() {
                 {userId === course._ownerId && (
                         <div className="buttons">
                             <Link to={`/courses/${course._id}/edit`} className="button">Edit</Link>
-                            <Link to={`/courses/${course._id}/delete`} className="button">Delete</Link>
+                            <button className="button" onClick={deleteCourseHandler}>Delete</button> 
                         </div>
                 )}
 
