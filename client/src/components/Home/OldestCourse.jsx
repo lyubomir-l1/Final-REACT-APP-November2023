@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function OldestCourse({
     _id,
     imageUrl,
-    title,
+    courseName,
 
 }){
     return (
@@ -11,10 +11,7 @@ export default function OldestCourse({
                     <div className="image-wrap">
                         <img src={imageUrl} />
                     </div>
-                    <h3>{title}</h3>
-                    <div className="rating">
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    </div>
+                    <h3>{courseName}</h3>
                     <div className="data-buttons">
                         <Link to={`/courses/${_id}`} className="btn details-btn">Details</Link>
                     </div>

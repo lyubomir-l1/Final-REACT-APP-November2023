@@ -8,7 +8,7 @@ import useForm from "../../hooks/useForm";
 
 export default function CourseDetails() {
     const navigate = useNavigate();
-    const {email, userId} = useContext(AuthContext)
+    const {email, userId, isAuthenticated} = useContext(AuthContext)
     const [course, setCourse] = useState({});
     const [comments, setComments] = useState([]);
     const { courseId } = useParams();
@@ -26,8 +26,6 @@ export default function CourseDetails() {
         const newComment = await commentService.create(
             courseId,
             values.comment
-            // formData.get('username'),
-            // formData.get('comment')
         );
 
 
@@ -36,7 +34,7 @@ export default function CourseDetails() {
     }
 
     const deleteCourseHandler = async () => {
-        const isConfirmed = confirm(`Are you sure you want to delete ${course.title}`);
+        const isConfirmed = confirm(`Are you sure you want to delete ${course.courseName}`);
         if(isConfirmed){
             await courseService.remove(courseId);
             navigate('/courses');
@@ -53,13 +51,13 @@ export default function CourseDetails() {
             <h1>Course Details</h1>
             <div className="info-section">
                 <div className="game-header">
-                    <img className="game-img" src={course.imageUrl} alt={course.title} />
-                    <h1>{course.title}</h1>
-                    <span className="levels">MaxLevel: {course.maxLevel}</span>
-                    <p className="type">{course.category}</p>
+                    <img className="game-img" src={course.imageUrl} alt={course.courseName} />
+                    <h1>{course.courseName}</h1>
+                    <span className="levels">Price: {course.price} $</span>
+                    <p className="type">{course.typeOfGun}</p>
                 </div>
 
-                <p className="text">{course.summary}</p>
+                <p className="text">{course.description}</p>
 
                 <div className="details-comments">
                     <h2>Comments:</h2>
@@ -77,7 +75,8 @@ export default function CourseDetails() {
                 </div>
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                {userId === course._ownerId && (
+            
+                {isAuthenticated && userId === course._ownerId && (
                         <div className="buttons">
                             <Link to={`/courses/${course._id}/edit`} className="button">Edit</Link>
                             <button className="button" onClick={deleteCourseHandler}>Delete</button> 
@@ -85,15 +84,16 @@ export default function CourseDetails() {
                 )}
 
             </div>
-
-            <article className="create-comment">
-                <label>Add new comment:</label>
-                <form className="form" onSubmit={onSubmit}>
-                    {/* <input type="text" name="username" placeholder="username" /> */}
-                    <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
-                    <input className="btn submit" type="submit" value="Add Comment" />
-                </form>
-            </article>
+                {isAuthenticated && (
+                    <article className="create-comment">
+                        <label>Add new comment:</label>
+                            <form className="form" onSubmit={onSubmit}>
+                            <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
+                            <input className="btn submit" type="submit" value="Add Comment" />
+                            </form>
+                    </article>
+                )}
+            
         </section>
     );
 }

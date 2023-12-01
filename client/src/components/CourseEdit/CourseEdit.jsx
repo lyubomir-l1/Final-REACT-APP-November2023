@@ -7,11 +7,12 @@ export default function CourseEdit() {
     const navigate = useNavigate();
     const {courseId} = useParams();
     const [course, setCourse] = useState({
-        title: '',
-        category: '',
-        maxLevel: '',
+        courseName: '',
+        typeOfGun: '',
+        price: '',
+        trainer: '',
         imageUrl: '',
-        summary: '',
+        description: '',
     });
     useEffect(() => {
         courseService.getOne(courseId)
@@ -46,14 +47,14 @@ export default function CourseEdit() {
             <form onSubmit={editCourseSubmitHandler} id="create" >
                 <div className="container">
                     <h1>Edit Course</h1>
-                    <label htmlFor="leg-title">Legendary title:</label>
-                    <input type="text" id="title" name="title" value={course.title} onChange={onChange} placeholder="Enter game title..." />
+                    <label htmlFor="leg-title">Course Name:</label>
+                    <input type="text" id="title" name="courseName" value={course.courseName} onChange={onChange} placeholder="Enter game title..." />
 
-                    <label htmlFor="category">Category:</label>
-                    <input type="text" id="category" name="category" value={course.category} onChange={onChange} placeholder="Enter game category..." />
+                    <label htmlFor="category">Type Of Gun:</label>
+                    <input type="text" id="category" name="typeOfGun" value={course.typeOfGun} onChange={onChange} placeholder="Enter game category..." />
 
-                    <label htmlFor="levels">MaxLevel:</label>
-                    <input type="number" id="maxLevel" name="maxLevel" value={course.maxLevel} onChange={onChange} min="1" placeholder="1" />
+                    <label htmlFor="levels">Price:</label>
+                    <input type="number" id="maxLevel" name="price" value={course.price} onChange={onChange} min="1" placeholder="1" />
 
                     <label htmlFor="levels">Trainer:</label>
                     <input type="text" id="trainer" name="trainer" value={course.trainer} onChange={onChange} placeholder="Trainer name" />
@@ -61,8 +62,8 @@ export default function CourseEdit() {
                     <label htmlFor="game-img">Image:</label>
                     <input type="text" id="imageUrl" name="imageUrl" value={course.imageUrl} onChange={onChange} placeholder="Upload a photo..." />
 
-                    <label htmlFor="summary">Summary:</label>
-                    <textarea name="summary" value={course.summary} onChange={onChange} id="summary"></textarea>
+                    <label htmlFor="summary">Description:</label>
+                    <textarea name="description" value={course.description} onChange={onChange} id="summary"></textarea>
                     <input className="btn submit" type="submit"  value="Edit Course" />
                 </div>
             </form>

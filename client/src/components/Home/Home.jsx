@@ -23,7 +23,7 @@ export default function Home() {
             <div id="home-page">
                 <h1>Oldest Courses</h1>
 
-                {oldestCourses.map(course => <OldestCourse {...course} />)}
+                {oldestCourses.map(course => <OldestCourse key={course._id} {...course} />)}
 
                 {!oldestCourses.length && <p className="no-articles">No courses yet</p>}
 
