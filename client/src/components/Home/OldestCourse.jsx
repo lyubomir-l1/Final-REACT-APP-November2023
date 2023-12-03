@@ -7,7 +7,7 @@ export default function OldestCourse({
 
 }){
     return (
-                <div className="game">
+                <div className="course">
                     <div className="image-wrap">
                         <img src={imageUrl} />
                     </div>

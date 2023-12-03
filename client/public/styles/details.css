@@ -1,4 +1,4 @@
-#game-details {
+#course-details {
     position: relative;
     display: block;
     width: 980px;
@@ -8,7 +8,7 @@
     transition: all 0.4s;
 }
 
-#game-details>h1 {
+#course-details>h1 {
     color: #fff;
     font-family: "Agency FB";
     font-size: 55px;
@@ -28,43 +28,43 @@
     background-color: whitesmoke;
 }
 
-.game-header {
+.course-header {
     position: relative;
     padding: 25px;
     height: 40%;
 }
 
-.game_header>h1 {
+.course>h1 {
     color: black;
     margin-top: 5px;
     font-size: 36px;
     font-weight: 400;
 }
 
-.game_header>h4 {
+.course>h4 {
     color: #555;
     font-size: 23px;
     font-weight: 400;
 }
 
-.levels {
+.price {
     display: inline-block;
     margin-top: 15px;
     color: #555;
     padding: 7px;
     border-radius: 5px;
-    background-color: #b4b6ee;
+    background-color:rgb(0, 221, 255);
     border: 1px solid rgba(218, 181, 181, 0.829);
 }
 
 .type {
     display: inline-block;
-    color: #959595;
-    font-size: 19px;
+    color: #171616;
+    font-size: 20px;
     margin-left: 10px;
 }
 
-.game-img {
+.course-img {
     position: relative;
     float: left;
     margin-left: 15px;
@@ -80,7 +80,7 @@
     height: 50%;
 }
 
-.game-summary {
+.description {
     margin-top: 15px;
     padding: 60px;
     height: 50%;
@@ -112,7 +112,7 @@
 
 .button {
     height: 15%;
-    background-color: #54557b;
+    background-color: #778e9c;
     padding: 14px;
     margin-top: auto;
     font-size: 21px;
@@ -120,7 +120,7 @@
 }
 
 .button:hover {
-    background-color: #6f5d9c;
+    background-color: #b2cee0;
     color: white;
 }
 

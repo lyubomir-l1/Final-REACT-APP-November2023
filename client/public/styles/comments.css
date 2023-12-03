@@ -20,7 +20,7 @@
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #6f5d9c;
+    background: rgb(4, 90, 103);
     box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
 }
 
@@ -40,7 +40,7 @@
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 12px 12px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 16px;
     margin-left: 60px;
-    background: #6f5d9c;
+    background: rgb(4, 90, 103);
     color: white;
 }
 

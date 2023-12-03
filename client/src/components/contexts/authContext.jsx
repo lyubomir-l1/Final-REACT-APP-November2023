@@ -16,10 +16,18 @@ export const AuthenticationProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const loginSubmitHandler = async(values) => {
-       const result = await authService.login(values.email, values.password);
-       setAuth(result);
-       localStorage.setItem('accessToken', result.accessToken);
-       navigate("/");
+     
+            const result = await authService.login(values.email, values.password);
+            setAuth(result);
+            // if(localStorage.accessToken === undefined) {
+            //     setAuth({})
+            //     localStorage.removeItem('accessToken');
+               
+            // }
+            localStorage.setItem('accessToken', result.accessToken);
+            console.log(localStorage.accessToken);
+            navigate("/");
+        
     }
 
     const registerSubmitHandler = async(values) => {

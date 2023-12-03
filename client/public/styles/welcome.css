@@ -40,7 +40,7 @@
     word-spacing: normal;
     text-transform: uppercase;
     text-shadow: 0 2px 4.8px rgba(0, 0, 0, 0.3);
-    font-family: "Agency FB";
+    font-family: Georgia, serif;
 }
 
 .welcome-message h3 {
@@ -55,7 +55,7 @@
     text-transform: uppercase;
     font-weight: 700;
     text-shadow: 0 2px 4.8px rgba(0, 0, 0, 0.3);
-    font-family: "Agency FB";
+    font-family: Georgia, serif;
 }
 
 #welcome-world>#home-page {
@@ -74,7 +74,7 @@
     width: auto;
 }
 
-.game {
+.course {
     box-shadow: 0px 0px 30px 0px;
     margin-top: 20px;
     padding: 50px;
@@ -84,7 +84,7 @@
     border-radius: 15px;
     float: left;
     height: auto;
-    color: rgb(204, 144, 131);
+    color: rgb(197, 197, 238);
 }
 
 .image-wrap {
@@ -101,9 +101,9 @@
     max-width: 100%;
 }
 
-.game>h3 {
-    font-family: "Agency FB";
-    font-size: 42px;
+.course>h3 {
+    font-family: Georgia, serif;
+    font-size: 25px;
     font-weight: 700;
     line-height: normal;
     width: 100%;
@@ -112,9 +112,10 @@
     transition: all 0.5s ease-out;
     text-align: center;
     text-transform: uppercase;
+    color: white
 }
 
-.game-content>h4 {
+.course-content>h4 {
     color: #c2d4f8;
     font-size: 24px;
     text-align: center;
@@ -122,25 +123,8 @@
     line-height: normal;
 }
 
-.rating {
-    unicode-bidi: bidi-override;
-    text-align: center;
-    direction: rtl;
-}
-
-.rating span {
-    font-size: 40px;
-    padding: 4px;
-}
-
-.rating span:before {
-    content: "\2605";
-    position: absolute;
-    color: gold;
-}
-
 .details-btn {
-    background-color: #fd5454;
+    background-color: #2A265F;
     font-size: 1.4rem;
     padding-top: 20px;
     margin-top: 10px;
@@ -155,22 +139,22 @@
 }
 
 .btn.details-btn:hover {
-    background-color: rgb(192, 129, 117);
+    background-color: rgb(117, 192, 147);
     color: white;
 }
 
 #home-page>h1 {
-    color: rgb(252, 168, 151);
+    color: rgb(197, 197, 238);
     text-align: center;
     font-weight: 700;
-    font-size: 84px;
-    font-family: "Agency FB";
+    font-size: 80px;
+    font-family: Georgia, serif;
 }
 
 .no-articles {
     color: white;
     text-align: center;
     font-weight: 700;
-    font-size: 60px;
-    font-family: "Agency FB";
+    font-size: 58px;
+    font-family: Georgia, serif;
 }

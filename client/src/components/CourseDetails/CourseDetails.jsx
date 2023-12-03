@@ -47,14 +47,14 @@ export default function CourseDetails() {
      });
 
     return (
-        <section id="game-details">
+        <section id="course-details">
             <h1>Course Details</h1>
             <div className="info-section">
-                <div className="game-header">
-                    <img className="game-img" src={course.imageUrl} alt={course.courseName} />
+                <div className="course-header">
+                    <img className="course-img" src={course.imageUrl} alt={course.courseName} />
                     <h1>{course.courseName}</h1>
-                    <span className="levels">Price: {course.price} $</span>
-                    <p className="type">{course.typeOfGun}</p>
+                    <span className="price">Price: {course.price} $</span>
+                    <p className="type"> Type of Gun: {course.typeOfGun}</p>
                 </div>
 
                 <p className="text">{course.description}</p>
@@ -74,11 +74,11 @@ export default function CourseDetails() {
                     )}
                 </div>
 
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
+                {/* <!-- Edit/Delete buttons ( Only for creator of this course )  --> */}
             
                 {isAuthenticated && userId === course._ownerId && (
                         <div className="buttons">
-                            <Link to={`/courses/${course._id}/edit`} className="button">Edit</Link>
+                            <button className="button"><Link to={`/courses/${course._id}/edit`} className="button">Edit</Link></button>
                             <button className="button" onClick={deleteCourseHandler}>Delete</button> 
                         </div>
                 )}

@@ -47,23 +47,23 @@ export default function CourseEdit() {
             <form onSubmit={editCourseSubmitHandler} id="create" >
                 <div className="container">
                     <h1>Edit Course</h1>
-                    <label htmlFor="leg-title">Course Name:</label>
-                    <input type="text" id="title" name="courseName" value={course.courseName} onChange={onChange} placeholder="Enter game title..." />
+                    <label htmlFor="courseName">Course Name:</label>
+                    <input type="text" id="courseName" name="courseName" value={course.courseName} onChange={onChange} placeholder="Enter name of the course..." />
 
-                    <label htmlFor="category">Type Of Gun:</label>
-                    <input type="text" id="category" name="typeOfGun" value={course.typeOfGun} onChange={onChange} placeholder="Enter game category..." />
+                    <label htmlFor="typeOfGun">Type Of Gun:</label>
+                    <input type="text" id="typeOfGun" name="typeOfGun" value={course.typeOfGun} onChange={onChange} placeholder="Enter type of the weapon..." />
 
-                    <label htmlFor="levels">Price:</label>
-                    <input type="number" id="maxLevel" name="price" value={course.price} onChange={onChange} min="1" placeholder="1" />
+                    <label htmlFor="price">Price:</label>
+                    <input type="number" id="price" name="price" value={course.price} onChange={onChange} min="1" placeholder="Enter a number..." />
 
-                    <label htmlFor="levels">Trainer:</label>
-                    <input type="text" id="trainer" name="trainer" value={course.trainer} onChange={onChange} placeholder="Trainer name" />
+                    <label htmlFor="trainer">Trainer:</label>
+                    <input type="text" id="trainer" name="trainer" value={course.trainer} onChange={onChange} placeholder="Enter trainer name..." />
 
-                    <label htmlFor="game-img">Image:</label>
+                    <label htmlFor="course-img">Image:</label>
                     <input type="text" id="imageUrl" name="imageUrl" value={course.imageUrl} onChange={onChange} placeholder="Upload a photo..." />
 
-                    <label htmlFor="summary">Description:</label>
-                    <textarea name="description" value={course.description} onChange={onChange} id="summary"></textarea>
+                    <label htmlFor="description">Description:</label>
+                    <textarea name="description" value={course.description} onChange={onChange} id="description" placeholder="Enter description of the course..."></textarea>
                     <input className="btn submit" type="submit"  value="Edit Course" />
                 </div>
             </form>

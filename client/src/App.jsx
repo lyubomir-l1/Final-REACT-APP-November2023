@@ -9,6 +9,7 @@ import Register from './components/register/Register';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCreate from './components/CourseCreate/CourseCreate';
 import AboutUs from './components/AboutUs/AboutUs';
+import UserInfo from './components/UserInfo/UserInfo';
 import {AuthenticationProvider} from './components/contexts/authContext';
 import CourseEdit from './components/CourseEdit/CourseEdit';
 
@@ -20,6 +21,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/userInfo" element={<UserInfo />} />
                 <Route path="/courses" element={<CoursesList />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/courses/create" element={<CourseCreate />} />

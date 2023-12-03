@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as courseService from '../../services/courseService';
 import OldestCourse from './OldestCourse';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -28,6 +29,34 @@ export default function Home() {
                 {!oldestCourses.length && <p className="no-articles">No courses yet</p>}
 
             </div>
+            <footer>
+
+                <div className="section-footer">
+                    <div className="container">
+                        <p className="footer-message">© 2023, All Rights Reserved.</p>
+                        <ul className="socials">
+                            <li>
+                                <Link to="https://www.twitter.com/">
+                                    <i className="fa-brands fa-twitter" />
+                                    <span>Twitter</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="https://www.facebook.com/">
+                                    <i className="fa-brands fa-facebook" />
+                                    <span>Facebook</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="https://www.instagram.com/">
+                                    <i className="fa-brands fa-instagram" />
+                                    <span>Instagram</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
         </section>
     );
 }

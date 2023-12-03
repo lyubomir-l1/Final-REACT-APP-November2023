@@ -1,0 +1,29 @@
+.section-footer {
+    margin: -3em;
+    padding: 0;
+}
+.section-footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-footer .container .socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+}
+.section-footer .container .socials li {
+    list-style: none;
+}
+.fa-brands {
+    color: white;
+}
+.section-footer .container .socials li span {
+    display: none;
+}
+
+.section-footer .container .footer-message{
+    align-self: center;
+}

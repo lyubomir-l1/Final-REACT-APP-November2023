@@ -1,0 +1,16 @@
+.userInfo-wrap {
+    display: flex;
+    justify-content: right;
+}
+.userInfo-h2 {
+    font-size: 40px;
+    padding-bottom: 1em;
+}
+.userInfo-content button {
+    position: relative;
+    background-color: rgb(83, 118, 245);
+    border: 2px solid rgb(193, 135, 65);
+    padding: 0.5em;
+    top: 1em;
+    right: -3em;
+}

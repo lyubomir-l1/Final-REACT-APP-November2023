@@ -13,7 +13,7 @@ export default function Header() {
         <header>
             <h1><Link className="home" to="/">Hunting</Link></h1>
             <nav>
-                <span>{username}</span>
+                <Link to="/userInfo"><span>{username}</span></Link>
                 <Link to="/courses">Hunting courses</Link>
                 <Link to="/about">About us</Link>
                 {isAuthenticated && (

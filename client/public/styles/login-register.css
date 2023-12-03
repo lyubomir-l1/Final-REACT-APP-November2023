@@ -5,8 +5,8 @@
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #3e4443;
-    box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21;
+    background:#766D31;
+    box-shadow: 0px 0px 32px 0px #766D31, -14px -14px 20px #191c21;
 }
 
 #register-page {
@@ -16,8 +16,8 @@
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #3e4443;
-    box-shadow: 0px 0px 32px 0px #49535e, -14px -14px 20px #191c21;
+    background: #766D31;
+    box-shadow: 0px 0px 32px 0px #766D31, -14px -14px 20px #191c21;
 }
 
 .container {
@@ -121,10 +121,10 @@ label[for="terms"]>input {
     position: absolute;
     font-size: 18px;
     bottom: 17px;
-    right: 8px;
+    right: 8em;
     text-decoration: none;
     color: black;
-    background: rgb(235, 157, 142);
+    background: #e7dda3;
     border-radius: 10px;
     padding: 5px;
 }

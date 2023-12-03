@@ -7,8 +7,8 @@ export default function CoursesListItem({
     imageUrl,
 }) {
     return (
-        <div className="allGames">
-            <div className="allGames-info">
+        <div className="allCourses">
+            <div className="allCourses-info">
                 <img src={imageUrl} />
                 <h2>{courseName}</h2>
                 <h6>{typeOfGun}</h6>
