@@ -15,7 +15,7 @@ export default function CourseCreate() {
     });
 
     const navigate = useNavigate();
-    
+
     const createCourseSubmitHandler = async (e) => {
         e.preventDefault();
 
@@ -31,11 +31,14 @@ export default function CourseCreate() {
         }
     }
 
-        const onChange = (e) => {
+    const onChange = (e) => {
         setFormValues(state => ({
             ...state,
             [e.target.name]: e.target.value,
-        })); 
+        }));
+    }
+    if(formValues.courseName.length === 0){
+        alert('Invalid Form, 0 special characters in password')
     }
 
     return (
@@ -45,6 +48,7 @@ export default function CourseCreate() {
                     <h1>Set New Course</h1>
                     <label htmlFor="courseName">Course Name:</label>
                     <input type="text" id="courseName" name="courseName" value={formValues.courseName} onChange={onChange} placeholder="Enter name of the course..." />
+                    
 
                     <label htmlFor="typeOfGun">Type Of Gun:</label>
                     <input type="text" id="typeOfGun" name="typeOfGun" value={formValues.typeOfGun} onChange={onChange} placeholder="Enter type of the weapon..." />
@@ -60,7 +64,7 @@ export default function CourseCreate() {
 
                     <label htmlFor="description">Description:</label>
                     <textarea name="description" value={formValues.description} onChange={onChange} id="description" placeholder="Enter description of the course..."></textarea>
-                    <input className="btn submit" type="submit"  value="Create Course" />
+                    <input className="btn submit" type="submit" value="Create Course" />
                 </div>
             </form>
         </section>

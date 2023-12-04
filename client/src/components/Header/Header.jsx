@@ -6,7 +6,7 @@ export default function Header() {
 
     const {
         isAuthenticated,
-        username,    
+        username,
     } = useContext(AuthContext);
 
     return (
@@ -22,14 +22,14 @@ export default function Header() {
                         <Link to="/logout">Logout</Link>
                     </div>
                 )}
-                
+
                 {!isAuthenticated && (
                     <div id="guest">
                         <Link to="/login">Login</Link>
                         <Link to="/register">Register</Link>
                     </div>
                 )}
-                
+
             </nav>
         </header>
     );

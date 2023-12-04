@@ -15,7 +15,7 @@ export const getAll = async (courseId) => {
 
 export const create = async (courseId, text) => {
     const newComment = await request.post(baseUrl, {
-        courseId, 
+        courseId,
         text,
     });
 

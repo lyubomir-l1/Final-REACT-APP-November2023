@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import * as courseService from '../../services/courseService';
@@ -8,7 +8,7 @@ import useForm from "../../hooks/useForm";
 
 export default function CourseDetails() {
     const navigate = useNavigate();
-    const {email, userId, isAuthenticated} = useContext(AuthContext)
+    const { email, userId, isAuthenticated } = useContext(AuthContext)
     const [course, setCourse] = useState({});
     const [comments, setComments] = useState([]);
     const { courseId } = useParams();
@@ -30,21 +30,21 @@ export default function CourseDetails() {
 
 
 
-        setComments(state => [...state, {...newComment, owner: {email}}]);
+        setComments(state => [...state, { ...newComment, owner: { email } }]);
     }
 
     const deleteCourseHandler = async () => {
         const isConfirmed = confirm(`Are you sure you want to delete ${course.courseName}`);
-        if(isConfirmed){
+        if (isConfirmed) {
             await courseService.remove(courseId);
             navigate('/courses');
         }
-        }
-        
-    const {values, onChange, onSubmit} = useForm(addCommentHandler, { 
+    }
+
+    const { values, onChange, onSubmit } = useForm(addCommentHandler, {
 
         comment: '',
-     });
+    });
 
     return (
         <section id="course-details">
@@ -75,25 +75,25 @@ export default function CourseDetails() {
                 </div>
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this course )  --> */}
-            
+
                 {isAuthenticated && userId === course._ownerId && (
-                        <div className="buttons">
-                            <button className="button"><Link to={`/courses/${course._id}/edit`} className="button">Edit</Link></button>
-                            <button className="button" onClick={deleteCourseHandler}>Delete</button> 
-                        </div>
+                    <div className="buttons">
+                        <button className="button"><Link to={`/courses/${course._id}/edit`} className="button">Edit</Link></button>
+                        <button className="button" onClick={deleteCourseHandler}>Delete</button>
+                    </div>
                 )}
 
             </div>
-                {isAuthenticated && (
-                    <article className="create-comment">
-                        <label>Add new comment:</label>
-                            <form className="form" onSubmit={onSubmit}>
-                            <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
-                            <input className="btn submit" type="submit" value="Add Comment" />
-                            </form>
-                    </article>
-                )}
-            
+            {isAuthenticated && (
+                <article className="create-comment">
+                    <label>Add new comment:</label>
+                    <form className="form" onSubmit={onSubmit}>
+                        <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
+                        <input className="btn submit" type="submit" value="Add Comment" />
+                    </form>
+                </article>
+            )}
+
         </section>
     );
 }

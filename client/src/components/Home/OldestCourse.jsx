@@ -5,16 +5,16 @@ export default function OldestCourse({
     imageUrl,
     courseName,
 
-}){
+}) {
     return (
-                <div className="course">
-                    <div className="image-wrap">
-                        <img src={imageUrl} />
-                    </div>
-                    <h3>{courseName}</h3>
-                    <div className="data-buttons">
-                        <Link to={`/courses/${_id}`} className="btn details-btn">Details</Link>
-                    </div>
-                </div>
+        <div className="course">
+            <div className="image-wrap">
+                <img src={imageUrl} />
+            </div>
+            <h3>{courseName}</h3>
+            <div className="data-buttons">
+                <Link to={`/courses/${_id}`} className="btn details-btn">Details</Link>
+            </div>
+        </div>
     )
 }

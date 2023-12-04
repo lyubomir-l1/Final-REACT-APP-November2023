@@ -1,24 +1,28 @@
 import { Link } from 'react-router-dom';
-import * as authContext from '../contexts/authContext'
+import AuthContext from '../contexts/authContext';
+import { useContext } from "react";
 
-export default function UserInfo(){
-    return(
-<>
-<section className="userInfo-section">
-    <div className="userInfo-wrap">
+export default function UserInfo() {
 
-      <div className="userInfo-content">
-        <h2 className="userInfo-h2">
-            Username: 
-        </h2>
-        <h2 className="userInfo-h2">
-            Email: 
-        </h2>
-        <button><Link to="/">Home</Link></button>
-      </div>
+    const { email, username } = useContext(AuthContext);
 
-    </div>
-</section>
-</>
+    return (
+        <>
+            <section className="userInfo-section">
+                <div className="userInfo-wrap">
+
+                    <div className="userInfo-content">
+                        <h2 className="userInfo-h2">
+                            Username: <span className='span'>{username}</span>
+                        </h2>
+                        <h2 className="userInfo-h2">
+                            Email: <span className='span'>{email}</span>
+                        </h2>
+                        <button><Link to="/">Home</Link></button>
+                    </div>
+
+                </div>
+            </section>
+        </>
     )
 }

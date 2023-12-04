@@ -15,22 +15,24 @@ export const AuthenticationProvider = ({
     const navigate = useNavigate()
     const [auth, setAuth] = usePersistedState('auth', {});
 
-    const loginSubmitHandler = async(values) => {
-     
-            const result = await authService.login(values.email, values.password);
-            setAuth(result);
-            // if(localStorage.accessToken === undefined) {
-            //     setAuth({})
-            //     localStorage.removeItem('accessToken');
-               
-            // }
-            localStorage.setItem('accessToken', result.accessToken);
-            console.log(localStorage.accessToken);
-            navigate("/");
-        
+    const loginSubmitHandler = async (values) => {
+
+        const result = await authService.login(values.email, values.password);
+        setAuth(result);
+        const userInfoName = result.username;
+        console.log(userInfoName);
+        // if(localStorage.accessToken === undefined) {
+        //     setAuth({})
+        //     localStorage.removeItem('accessToken');
+
+        // }
+        localStorage.setItem('accessToken', result.accessToken);
+        console.log(localStorage.accessToken);
+        navigate("/");
+
     }
 
-    const registerSubmitHandler = async(values) => {
+    const registerSubmitHandler = async (values) => {
 
         // TODO: Add validation if confirm-pass matches password
 
@@ -39,16 +41,16 @@ export const AuthenticationProvider = ({
         localStorage.setItem('accessToken', result.accessToken);
 
         navigate("/");
-     };
+    };
 
-     const logoutHandler = () => {
+    const logoutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
         navigate('/');
-     }
+    }
 
     const values = {
-        loginSubmitHandler, 
+        loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
         username: auth.username || auth.email,

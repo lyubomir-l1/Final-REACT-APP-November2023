@@ -9,10 +9,10 @@ export const login = async (email, password) => {
             password,
         });
         return result
-    } catch(error) {
+    } catch (error) {
         console.log('An error occurred:', error);
     }
-    
+
 }
 
 export const register = async (email, password) => {
@@ -23,17 +23,17 @@ export const register = async (email, password) => {
             password,
         });
         return result
-    } catch(error) {
+    } catch (error) {
         console.log(error);
     }
-    
+
 }
 
 export const logout = () => {
     try {
         const result = request.get(`${baseUrl}/logout`);
         return result
-    } catch(error) {
+    } catch (error) {
         console.log(error);
     }
 

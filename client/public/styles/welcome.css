@@ -144,11 +144,13 @@
 }
 
 #home-page>h1 {
-    color: rgb(197, 197, 238);
+    text-shadow: 5px 5px 5px #0b0a0a;
+    color: #906B52;
     text-align: center;
     font-weight: 700;
     font-size: 80px;
-    font-family: Georgia, serif;
+    font-family: 'NOOXER', sans-serif;
+                                                
 }
 
 .no-articles {

@@ -10,28 +10,28 @@ import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCreate from './components/CourseCreate/CourseCreate';
 import AboutUs from './components/AboutUs/AboutUs';
 import UserInfo from './components/UserInfo/UserInfo';
-import {AuthenticationProvider} from './components/contexts/authContext';
+import { AuthenticationProvider } from './components/contexts/authContext';
 import CourseEdit from './components/CourseEdit/CourseEdit';
 
 function App() {
     return (
         <AuthenticationProvider>
-        <div id="box">
-            <Header />
+            <div id="box">
+                <Header />
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/userInfo" element={<UserInfo />} />
-                <Route path="/courses" element={<CoursesList />} />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="/courses/create" element={<CourseCreate />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/courses/:courseId" element={<CourseDetails /> } />
-                <Route path="/courses/:courseId/edit" element={<CourseEdit /> } />
-                <Route path="/logout" element={<Logout /> } />
-            </Routes>
-        </div>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/userInfo" element={<UserInfo />} />
+                    <Route path="/courses" element={<CoursesList />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/courses/create" element={<CourseCreate />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/courses/:courseId" element={<CourseDetails />} />
+                    <Route path="/courses/:courseId/edit" element={<CourseEdit />} />
+                    <Route path="/logout" element={<Logout />} />
+                </Routes>
+            </div>
         </AuthenticationProvider>
     )
 }

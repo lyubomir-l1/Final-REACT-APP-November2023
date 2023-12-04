@@ -9,13 +9,16 @@ export const getAll = async () => {
 };
 
 export const getOne = async (courseId) => {
-    const result = await request.get(`${baseUrl}/${courseId}`, );
+    const result = await request.get(`${baseUrl}/${courseId}`,);
 
     return result;
 }
 
 export const create = async (courseData) => {
     const result = await request.post(baseUrl, courseData);
+    if(formValues.courseName.length === 0){
+        alert('Invalid Form, 0 special characters in password')
+    }
 
     return result;
 };

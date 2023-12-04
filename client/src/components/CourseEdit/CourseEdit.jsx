@@ -5,7 +5,7 @@ import * as courseService from '../../services/courseService';
 export default function CourseEdit() {
 
     const navigate = useNavigate();
-    const {courseId} = useParams();
+    const { courseId } = useParams();
     const [course, setCourse] = useState({
         courseName: '',
         typeOfGun: '',
@@ -16,9 +16,9 @@ export default function CourseEdit() {
     });
     useEffect(() => {
         courseService.getOne(courseId)
-        .then(result => {
-            setCourse(result)
-        })
+            .then(result => {
+                setCourse(result)
+            })
     }, [courseId]);
 
     const editCourseSubmitHandler = async (e) => {
@@ -64,7 +64,7 @@ export default function CourseEdit() {
 
                     <label htmlFor="description">Description:</label>
                     <textarea name="description" value={course.description} onChange={onChange} id="description" placeholder="Enter description of the course..."></textarea>
-                    <input className="btn submit" type="submit"  value="Edit Course" />
+                    <input className="btn submit" type="submit" value="Edit Course" />
                 </div>
             </form>
         </section>

@@ -5,6 +5,13 @@
 .userInfo-h2 {
     font-size: 40px;
     padding-bottom: 1em;
+    color: rgb(91, 91, 157);
+}
+
+.span {
+    font-size: 45px;
+    padding-bottom: 1em;
+    color: rgb(24, 24, 31);
 }
 .userInfo-content button {
     position: relative;
