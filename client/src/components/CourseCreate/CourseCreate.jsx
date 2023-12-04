@@ -23,12 +23,24 @@ export default function CourseCreate() {
 
         try {
             await courseService.create(courseData);
+            const courseWord = 'course';
+
+
+            if (!courseData.courseName.toLowerCase().includes(courseWord.toLowerCase())) {
+                alert(`Course Name field must contain the word "${courseWord}"`);
+                return;
+            };
+        
+            if (courseData.description.length < 10) {
+                alert(`Description field must be longer than 10 characters"`);
+                return;
+            }
             navigate('/courses');
 
         } catch (err) {
-            // Error notification
-            console.log(err);
+            alert(`${err}`);
         }
+
     }
 
     const onChange = (e) => {
@@ -37,9 +49,6 @@ export default function CourseCreate() {
             [e.target.name]: e.target.value,
         }));
     }
-    if(formValues.courseName.length === 0){
-        alert('Invalid Form, 0 special characters in password')
-    }
 
     return (
         <section id="create-page" className="auth">
@@ -47,23 +56,23 @@ export default function CourseCreate() {
                 <div className="container">
                     <h1>Set New Course</h1>
                     <label htmlFor="courseName">Course Name:</label>
-                    <input type="text" id="courseName" name="courseName" value={formValues.courseName} onChange={onChange} placeholder="Enter name of the course..." />
-                    
+                    <input type="text" id="courseName" name="courseName" value={formValues.courseName} onChange={onChange} placeholder="Enter name of the course..." required />
+
 
                     <label htmlFor="typeOfGun">Type Of Gun:</label>
-                    <input type="text" id="typeOfGun" name="typeOfGun" value={formValues.typeOfGun} onChange={onChange} placeholder="Enter type of the weapon..." />
+                    <input type="text" id="typeOfGun" name="typeOfGun" value={formValues.typeOfGun} onChange={onChange} placeholder="Enter type of the weapon..." required />
 
                     <label htmlFor="price">Price:</label>
-                    <input type="number" id="price" name="price" value={formValues.price} onChange={onChange} min="1" placeholder="Enter a number..." />
+                    <input type="number" id="price" name="price" value={formValues.price} onChange={onChange} min="1" placeholder="Enter a number..." required />
 
                     <label htmlFor="trainer">Trainer:</label>
-                    <input type="text" id="trainer" name="trainer" value={formValues.trainer} onChange={onChange} placeholder="Enter trainer name..." />
+                    <input type="text" id="trainer" name="trainer" value={formValues.trainer} onChange={onChange} placeholder="Enter trainer name..." required />
 
                     <label htmlFor="course-img">Image:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" value={formValues.imageUrl} onChange={onChange} placeholder="Upload a photo..." />
+                    <input type="text" id="imageUrl" name="imageUrl" value={formValues.imageUrl} onChange={onChange} placeholder="Upload a photo..." required />
 
                     <label htmlFor="description">Description:</label>
-                    <textarea name="description" value={formValues.description} onChange={onChange} id="description" placeholder="Enter description of the course..."></textarea>
+                    <textarea name="description" value={formValues.description} onChange={onChange} id="description" placeholder="Enter description of the course..." required></textarea>
                     <input className="btn submit" type="submit" value="Create Course" />
                 </div>
             </form>

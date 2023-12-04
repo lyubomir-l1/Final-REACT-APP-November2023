@@ -15,16 +15,18 @@ export const login = async (email, password) => {
 
 }
 
-export const register = async (email, password) => {
+export const register = async (email, username, password, confirmPassword) => {
 
     try {
         const result = await request.post(`${baseUrl}/register`, {
             email,
+            username,
             password,
+            confirmPassword,
         });
         return result
     } catch (error) {
-        console.log(error);
+        alert(`${error.message}`);
     }
 
 }

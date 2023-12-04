@@ -4,15 +4,18 @@ import useForm from "../../hooks/useForm";
 
 const RegisterFormKeys = {
     Email: 'email',
+    Username: 'username',
     Password: 'password',
-    ConfirmPassword: 'confirm-password',
-}
+    ConfirmPassword: 'confirmPassword',
+};
+
 
 export default function Register() {
 
     const { registerSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         [RegisterFormKeys.Email]: '',
+        [RegisterFormKeys.Username]: '',
         [RegisterFormKeys.Password]: '',
         [RegisterFormKeys.ConfirmPassword]: '',
 
@@ -34,6 +37,18 @@ export default function Register() {
                         placeholder="Enter email here..."
                         onChange={onChange}
                         values={values[RegisterFormKeys.Email]}
+                        required
+                    />
+
+                    <label htmlFor="username">Username:</label>
+                    <input
+                        type="username"
+                        id="username"
+                        name="username"
+                        placeholder="Enter username here..."
+                        onChange={onChange}
+                        values={values[RegisterFormKeys.Username]}
+                        required
                     />
 
                     <label htmlFor="pass">Password:</label>
@@ -43,20 +58,23 @@ export default function Register() {
                         id="register-password"
                         onChange={onChange}
                         values={values[RegisterFormKeys.Password]}
+                        required
                     />
 
                     <label htmlFor="con-pass">Confirm Password:</label>
                     <input
                         type="password"
-                        name="confirm-password"
+                        name="confirmPassword"
                         id="confirm-password"
                         onChange={onChange}
                         values={values[RegisterFormKeys.ConfirmPassword]}
+                        required
+
                     />
 
                     <input className="btn submit" type="submit" value="Register" />
 
-                    <p className="field">
+                    <p className="submitMessage">
                         <span>If you already have profile - <a href="/login">Login</a></span>
                     </p>
                 </div>

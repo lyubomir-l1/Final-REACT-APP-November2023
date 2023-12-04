@@ -15,10 +15,8 @@ export const getOne = async (courseId) => {
 }
 
 export const create = async (courseData) => {
+
     const result = await request.post(baseUrl, courseData);
-    if(formValues.courseName.length === 0){
-        alert('Invalid Form, 0 special characters in password')
-    }
 
     return result;
 };

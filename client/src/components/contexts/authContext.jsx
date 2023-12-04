@@ -19,15 +19,7 @@ export const AuthenticationProvider = ({
 
         const result = await authService.login(values.email, values.password);
         setAuth(result);
-        const userInfoName = result.username;
-        console.log(userInfoName);
-        // if(localStorage.accessToken === undefined) {
-        //     setAuth({})
-        //     localStorage.removeItem('accessToken');
-
-        // }
         localStorage.setItem('accessToken', result.accessToken);
-        console.log(localStorage.accessToken);
         navigate("/");
 
     }
@@ -35,12 +27,26 @@ export const AuthenticationProvider = ({
     const registerSubmitHandler = async (values) => {
 
         // TODO: Add validation if confirm-pass matches password
+        try {
+            const result = await authService.register(values.email, values.username, values.password, values.confirmPassword);
+            if(values.password.length < 5){
+                alert('Password is too short!');
+                return;
+            }
+            
+            if(values.password !== values.confirmPassword){
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            setAuth(result);
+            localStorage.setItem('accessToken', result.accessToken);
+            navigate("/");
+        }catch(err) {
+            alert(`${err}`);
+        }
 
-        const result = await authService.register(values.email, values.password);
-        setAuth(result);
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate("/");
+        
     };
 
     const logoutHandler = () => {

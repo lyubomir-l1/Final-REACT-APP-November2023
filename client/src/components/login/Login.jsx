@@ -43,7 +43,7 @@ export default function Login() {
                         value={values[LoginFormKeys.Password]}
                     />
                     <input type="submit" className="btn submit" value="Login" />
-                    <p className="field">
+                    <p className="submitMessage">
                         <span>If you don't have registration <a href="/register">Register</a> here</span>
                     </p>
                 </div>

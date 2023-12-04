@@ -79,7 +79,8 @@ label[for="female"] {
 input[type="nickname"],
 input[type="password"],
 input[type="number"],
-input[type="email"] {
+input[type="email"],
+input[type="username"] {
     background: #ecf0f3;
     padding: 30px;
     padding-left: 20px;
@@ -117,7 +118,7 @@ label[for="terms"]>input {
     margin-top: 0px;
 }
 
-.field>span {
+.submitMessage>span {
     position: absolute;
     font-size: 18px;
     bottom: 17px;
