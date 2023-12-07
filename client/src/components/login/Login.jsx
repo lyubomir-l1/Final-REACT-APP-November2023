@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import "./login-register.css";
 import useForm from "../../hooks/useForm";
 import AuthContext from "../contexts/authContext";
 

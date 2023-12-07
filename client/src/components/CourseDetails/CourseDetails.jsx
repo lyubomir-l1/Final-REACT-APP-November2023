@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
+import "./details.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+// import * as request from '../lib/request';
 import * as courseService from '../../services/courseService';
 import * as commentService from '../../services/commentService';
 import AuthContext from "../contexts/authContext";
@@ -8,7 +10,7 @@ import useForm from "../../hooks/useForm";
 
 export default function CourseDetails() {
     const navigate = useNavigate();
-    const { email, userId, isAuthenticated } = useContext(AuthContext)
+    const { username, userId, isAuthenticated } = useContext(AuthContext)
     const [course, setCourse] = useState({});
     const [comments, setComments] = useState([]);
     const { courseId } = useParams();
@@ -19,6 +21,7 @@ export default function CourseDetails() {
 
         commentService.getAll(courseId)
             .then(setComments);
+
     }, [courseId]);
 
     const addCommentHandler = async (values) => {
@@ -28,9 +31,9 @@ export default function CourseDetails() {
             values.comment
         );
 
+        setComments(state => [...state, { ...newComment, owner: { username } }]);
+        values.comment = '';
 
-
-        setComments(state => [...state, { ...newComment, owner: { email } }]);
     }
 
     const deleteCourseHandler = async () => {
@@ -39,6 +42,18 @@ export default function CourseDetails() {
             await courseService.remove(courseId);
             navigate('/courses');
         }
+    }
+
+    const deleteCommentHandler = async (commentId) => {
+
+        const isConfirmed = confirm(`Are you sure you want to delete this comment?`);
+
+        if (isConfirmed) {
+            await commentService.remove(commentId);
+            // to update the current state of the comments
+            commentService.getAll(courseId).then(setComments);
+        }
+     
     }
 
     const { values, onChange, onSubmit } = useForm(addCommentHandler, {
@@ -62,19 +77,25 @@ export default function CourseDetails() {
                 <div className="details-comments">
                     <h2>Comments:</h2>
                     <ul>
-                        {comments.map(({ _id, text, owner: { email } }) => (
-                            <li key={_id} className="comment">
-                                <p>{email}: {text}</p>
-                            </li>
-                        ))}
+                        {comments.map((comment) => {
+
+                            return (
+                                <li key={comment._id} className="comment">
+                                    <p>{comment.owner.username}: {comment.text}</p>
+                                    {userId === comment._ownerId && (
+                                        <div className="buttons">
+                                            <button className="commentDeleteButton" onClick={() => deleteCommentHandler(comment._id)}>Delete</button>
+                                        </div>
+                                    )}
+                                </li>
+                            )
+                        })}
                     </ul>
 
                     {comments.length === 0 && (
                         <p className="no-comment">No comments.</p>
                     )}
                 </div>
-
-                {/* <!-- Edit/Delete buttons ( Only for creator of this course )  --> */}
 
                 {isAuthenticated && userId === course._ownerId && (
                     <div className="buttons">

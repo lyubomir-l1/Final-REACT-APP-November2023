@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import "./create-edit.css";
 import * as courseService from '../../services/courseService';
 
 export default function CourseEdit() {

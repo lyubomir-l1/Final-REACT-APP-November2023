@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import "./create-edit.css";
 import * as courseService from '../../services/courseService';
 
 
@@ -20,21 +21,21 @@ export default function CourseCreate() {
         e.preventDefault();
 
         const courseData = Object.fromEntries(new FormData(e.currentTarget));
+        const courseWord = 'course';
 
+
+        if (!courseData.courseName.toLowerCase().includes(courseWord.toLowerCase())) {
+            alert(`Course Name field must contain the word "${courseWord}"`);
+            return;
+        };
+    
+        if (courseData.description.length < 10) {
+            alert(`Description field must be longer than 10 characters"`);
+            return;
+        }
         try {
             await courseService.create(courseData);
-            const courseWord = 'course';
 
-
-            if (!courseData.courseName.toLowerCase().includes(courseWord.toLowerCase())) {
-                alert(`Course Name field must contain the word "${courseWord}"`);
-                return;
-            };
-        
-            if (courseData.description.length < 10) {
-                alert(`Description field must be longer than 10 characters"`);
-                return;
-            }
             navigate('/courses');
 
         } catch (err) {

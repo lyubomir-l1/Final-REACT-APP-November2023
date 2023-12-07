@@ -21,3 +21,5 @@ export const create = async (courseId, text) => {
 
     return newComment;
 };
+
+export const remove = async (commentId) => request.remove(`${baseUrl}/${commentId}`);

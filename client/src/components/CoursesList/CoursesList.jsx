@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import "./all-courses.css";
 import * as courseServise from '../../services/courseService';
 import CoursesListItem from './CoursesListItem/CoursesListItem';
 

@@ -31,8 +31,10 @@ function App() {
                     <Route path="/courses/:courseId/edit" element={<CourseEdit />} />
                     <Route path="/logout" element={<Logout />} />
                 </Routes>
+               
             </div>
         </AuthenticationProvider>
+        
     )
 }
 

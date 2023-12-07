@@ -26,7 +26,6 @@ export const AuthenticationProvider = ({
 
     const registerSubmitHandler = async (values) => {
 
-        // TODO: Add validation if confirm-pass matches password
         try {
             const result = await authService.register(values.email, values.username, values.password, values.confirmPassword);
             if(values.password.length < 5){
@@ -35,7 +34,7 @@ export const AuthenticationProvider = ({
             }
             
             if(values.password !== values.confirmPassword){
-                alert('Passwords do not match!');
+                alert('Password and Confirm Password do not match!');
                 return;
             }
             

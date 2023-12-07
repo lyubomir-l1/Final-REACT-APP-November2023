@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import "./userInfo.css";
 import AuthContext from '../contexts/authContext';
 import { useContext } from "react";
 
