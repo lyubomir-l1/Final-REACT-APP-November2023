@@ -30,9 +30,8 @@ export const edit = async (courseId, courseData) => {
 export const remove = async (courseId) => request.remove(`${baseUrl}/${courseId}`);
 
 
-export const getOldest = async () => {
+export const getBasic = async () => {
     const query = new URLSearchParams({
-        // sortBy: `_createdOn desc`,
         offset: 0,
         pageSize: 3,
     });

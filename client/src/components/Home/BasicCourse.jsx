@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function OldestCourse({
+export default function BasicCourse({
     _id,
     imageUrl,
     courseName,

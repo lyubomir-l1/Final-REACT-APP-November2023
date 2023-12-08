@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header/Header"
 import Home from "./components/Home/Home"
 import CoursesList from './components/CoursesList/CoursesList';
-import Login from './components/login/Login';
+import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
-import Register from './components/register/Register';
+import Register from './components/Register/Register';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseCreate from './components/CourseCreate/CourseCreate';
 import AboutUs from './components/AboutUs/AboutUs';

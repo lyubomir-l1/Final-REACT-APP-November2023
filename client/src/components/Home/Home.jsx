@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react';
 import "./welcome.css";
 import "./footer.css";
 import * as courseService from '../../services/courseService';
-import OldestCourse from './OldestCourse';
+import BasicCourse from './BasicCourse';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
 
-    const [oldestCourses, setOldestCourses] = useState([]);
+    const [basicCourses, setBasicCourses] = useState([]);
 
     useEffect(() => {
-        courseService.getOldest()
-            .then(result => setOldestCourses(result))
+        courseService.getBasic()
+            .then(result => setBasicCourses(result))
     }, [])
 
     return (
@@ -24,11 +24,11 @@ export default function Home() {
             <img src="./images/5b8ab123a639e004e1cab50b.png" alt="hero" />
 
             <div id="home-page">
-                <h1>Oldest Courses</h1>
+                <h1>Basic Courses</h1>
 
-                {oldestCourses.map(course => <OldestCourse key={course._id} {...course} />)}
+                {basicCourses.map(course => <BasicCourse key={course._id} {...course} />)}
 
-                {!oldestCourses.length && <p className="no-articles">No courses yet</p>}
+                {!basicCourses.length && <p className="no-articles">No courses yet</p>}
 
             </div>
             <footer>
