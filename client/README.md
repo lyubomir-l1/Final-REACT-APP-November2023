@@ -13,7 +13,8 @@ Components
 State Management
 Routing
 
-Project Structure <a name="project-structure"></a>
+Project Structure :
+
 The project follows a modular structure with separate folders for components, styles, and other assets. Key folders include:
 
 src: Contains the main source code.
@@ -24,14 +25,15 @@ styles: Global styles. (Other style components are nested in the REACT component
 
 services: API services.
 
-Dependencies <a name="dependencies"></a>
+Dependencies :
 
 React
+
 React Router
 
-[List any additional dependencies]
 
-Getting Started <a name="getting-started"></a>
+Getting Started :
+
 To run the project locally, follow these steps:
 
 Clone the repository: git clone [https://github.com/lyubomir-l1/Final-REACT-APP-November2023/]
@@ -47,5 +49,3 @@ Open http://localhost:5173/ in your browser.
 
 The project uses Context API for managing global state.
 
-Routing <a name="routing"></a>
-[Describe how routing is implemented in the project. Mention any routing libraries or techniques used.]
