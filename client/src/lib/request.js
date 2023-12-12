@@ -10,15 +10,17 @@ const buildOptions = (data) => {
 
     const token = localStorage.getItem('accessToken');
 
+    
     if (token) {
         options.headers = {
             ...options.headers,
             'X-Authorization': token
         }
-    }
-
-    return options;
-};
+    };    
+ 
+        return options;
+    
+}
 
 const request = async (method, url, data) => {
     const response = await fetch(url, {
