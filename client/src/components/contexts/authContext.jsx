@@ -16,15 +16,34 @@ export const AuthenticationProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const loginSubmitHandler = async (values) => {
-       
+        try {
             const result = await authService.login(values.email, values.password);
-            setAuth(result);
-            localStorage.setItem('accessToken', result.accessToken);
-            navigate("/");
     
-        
-        
-    }
+            // Check if authentication was successful
+            if (result && result.accessToken) {
+                setAuth(result);
+                localStorage.setItem('accessToken', result.accessToken);
+                navigate("/");
+            } else {
+                // If login fails, clear the accessToken from localStorage
+                localStorage.removeItem('accessToken');
+                alert("Login failed: Invalid email or password!");
+                // Optionally, you can display an error message or handle the failure in another way
+                return;
+            }
+        } catch (error) {
+            // Handle other possible errors (e.g., network issues, server errors)
+            console.error("An error occurred during login:", error);
+        }
+    };
+
+    // const loginSubmitHandler = async (values) => {
+       
+    //         const result = await authService.login(values.email, values.password);
+    //         setAuth(result);
+    //         localStorage.setItem('accessToken', result.accessToken);
+    //         navigate("/");
+    // }
 
     const registerSubmitHandler = async (values) => {
 
